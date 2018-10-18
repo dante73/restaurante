@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastController } from 'ionic-angular';
 import { SQLiteObject } from '@ionic-native/sqlite';
 import { BasedadosProvider } from '../../providers/basedados/basedados';
 import 'rxjs/add/operator/map';
@@ -12,9 +13,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class CategoriasProvider {
 
-  constructor(private dbProvider: BasedadosProvider) { console.log('Hello CategoriasProvider Provider'); }
+    constructor(
+        private toast: ToastController,
+        private dbProvider: BasedadosProvider
+    ) { }
 
   // CRUD for "Categoria"
+
   public create(categoria: Categoria) {
       return this.dbProvider.getDb()
           .then( (db: SQLiteObject) => {
@@ -89,7 +94,7 @@ export class CategoriasProvider {
       return this.dbProvider.getDb()
           .then( (db: SQLiteObject) => {
 
-              let sqlcmd = "SELECT p.*, c.name AS categoria_name FROM categoria p INNER JOIN categoria c ON p.id = c.id";
+              let sqlcmd = 'SELECT * FROM categoria ORDER BY name';
               let data = [];
 
               if (name) {
@@ -100,6 +105,7 @@ export class CategoriasProvider {
               return db.executeSql(sqlcmd, data)
                   .then( (data: any) => {
                       if (data.rows.length > 0) {
+
                           let categorias: any[] = [];
                           for (var i = 0; i < data.rows.length; i++) {
                               var categoria = data.rows.item(i);

@@ -18,6 +18,8 @@ import { ProdutoPage } from '../pages/produto/produto';
 import { EditcategoriaPage } from '../pages/editcategoria/editcategoria';
 import { EditprodutoPage } from '../pages/editproduto/editproduto';
 
+import { ListacategoriaPage } from '../pages/listacategoria/listacategoria';
+
 import { SQLite } from '@ionic-native/sqlite';
 import { BasedadosProvider } from '../providers/basedados/basedados';
 import { CategoriasProvider } from '../providers/categorias/categorias';
@@ -30,7 +32,8 @@ import { ProdutosProvider } from '../providers/produtos/produtos';
     CategoriaPage,
     ProdutoPage,
     EditcategoriaPage,
-    EditprodutoPage   
+    EditprodutoPage,
+    ListacategoriaPage
   ],                  
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { ProdutosProvider } from '../providers/produtos/produtos';
     CategoriaPage,
     ProdutoPage,
     EditcategoriaPage,
-    EditprodutoPage
+    EditprodutoPage,
+    ListacategoriaPage
   ],
   providers: [
     StatusBar,

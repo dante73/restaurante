@@ -35,6 +35,10 @@ export class EditcategoriaPage {
     }
 
     ionViewDidLoad() {
+        this.categorias = [
+            {nome: 'Lanches', descr: 'Lanches feitos com produtos da melhor qualidade.', imagem: 'lanches.png'},
+            {nome: 'Refeições', descr: 'Refeições completas para o seu almoço.', imagem: 'refeicoes.png'}];
+        /*
         this.categoriaProvider.getAll()
             .then( (result: any[]) => {
                 this.categorias = result;
@@ -42,10 +46,10 @@ export class EditcategoriaPage {
                 this.toast.create({
                     message: 'Erro ao carregar as categorias.',
                     duration: 3000,
-                    position: 'bottom'})
-                    .present();
+                    position: 'bottom'}).present();
             });
         console.log('ionViewDidLoad EditcategoriaPage');
+         */
     }
 
     save() {

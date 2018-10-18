@@ -36,4 +36,25 @@
 
     <button ion-button block (click)="save()">Salvar</button>
 
+    <br />
+
+    <ion-list>
+
+        <ion-item *ngFor="let c of categorias">
+
+            <ion-thumbnail item-start>
+                <img src="assets/imgs/{{ c.imagem }}">
+            </ion-thumbnail>
+
+            <h2>{{ c.name }}</h2>
+
+            <p>{{ c.descr }}</p>
+
+            <button ion-button clear item-end>Editar</button>
+            <button ion-button clear item-end>Excluir</button>
+
+        </ion-item>
+
+    </ion-list>
+
 </ion-content>
