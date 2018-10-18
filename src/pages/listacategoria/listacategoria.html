@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Restaurante Cuiédipau</ion-title>
+    <ion-title>Restaurante Culédipau</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,19 +16,21 @@
 <ion-content padding>
 
     <ion-list>
+
         <ion-item *ngFor="let c of categorias">
 
             <ion-thumbnail item-start>
                 <img src="assets/imgs/{{ c.imagem }}">
             </ion-thumbnail>
 
-            <h2>{{ c.nome }}</h2>
+            <h2>{{ c.name }}</h2>
 
             <p>{{ c.descr }}</p>
 
             <button ion-button clear item-end>Ver</button>
 
         </ion-item>
+
     </ion-list>
 
 </ion-content>
