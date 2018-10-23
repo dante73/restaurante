@@ -19,17 +19,19 @@
 
         <ion-item>
             <ion-label stacked>Nome</ion-label>
-            <ion-input type="text" name="name" [(ngModel)]="model.name"></ion-input>
+            <ion-input #primeiro type="text" name="name" [(ngModel)]="model.name"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label stacked>Descrição</ion-label>
-            <ion-input type="text" name="name" [(ngModel)]="model.descr"></ion-input>
+            <ion-input type="text" name="descr" [(ngModel)]="model.descr"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label stacked>Imagem</ion-label>
-            <ion-input type="text" name="imagem" [(ngModel)]="model.imagem"></ion-input>
+            <ion-select [(ngModel)]="model.imagem">
+                <ion-option *ngFor="let imagem of imagens" value="{{ imagem }}">{{ imagem }}</ion-option>
+            </ion-select>
         </ion-item>
 
     </ion-list>
@@ -46,12 +48,12 @@
                 <img src="assets/imgs/{{ c.imagem }}">
             </ion-thumbnail>
 
-            <h2>{{ c.name }}</h2>
+            <h3>{{ c.name }}</h3>
 
-            <p>{{ c.descr }}</p>
+            <p class="wrap">{{ c.descr }}</p>
 
-            <button ion-button clear item-end>Editar</button>
-            <button ion-button clear item-end>Excluir</button>
+            <button ion-button clear item-end (click)="open(c.id)"><ion-icon name="create"></ion-icon></button>
+            <button ion-button clear item-end (click)="deleteIt(c.id)"><ion-icon name="trash"></ion-icon></button>
 
         </ion-item>
 

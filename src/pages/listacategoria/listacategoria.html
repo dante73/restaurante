@@ -17,19 +17,42 @@
 
     <ion-list>
 
-        <ion-item *ngFor="let c of categorias">
+        <ion-card (click)='openPratoDoDiaPage()'>
 
-            <ion-thumbnail item-start>
-                <img src="assets/imgs/{{ c.imagem }}">
-            </ion-thumbnail>
+            <ion-card-content>
 
-            <h2>{{ c.name }}</h2>
+                <ion-card-title>Prato do Dia</ion-card-title>
+                <p class="item-text-wrap">Promoção exclusiva de nosso restaurante. Todos os dias uma seleção de produtos por um preço promocional, aproveite a seleção de hoje.</p>
+            </ion-card-content>
 
-            <p>{{ c.descr }}</p>
+            <ion-item text-right>
+                <h1>Apenas R$ 20</h1>
+            </ion-item>
 
-            <button ion-button clear item-end>Ver</button>
+        </ion-card>
 
-        </ion-item>
+        <ion-card>
+
+            <ion-card-content>
+                <ion-card-title>Nosso Cardápio</ion-card-title>
+                <p class="item-text-wrap">Escolha entre nossos produtos.</p>
+            </ion-card-content>
+
+            <ion-item *ngFor="let c of categorias">
+
+                <ion-thumbnail item-start>
+                    <img src="assets/imgs/{{ c.imagem }}">
+                </ion-thumbnail>
+
+                <h2>{{ c.name }}</h2>
+
+                <p class="item-text-wrap">{{ c.descr }}</p>
+
+                <button ion-button clear item-end (click)='openProdutoPage(c.id)'>Ver</button>
+
+            </ion-item>
+
+        </ion-card>
 
     </ion-list>
 

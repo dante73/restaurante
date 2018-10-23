@@ -5,10 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 
 import { CategoriaPage } from '../pages/categoria/categoria';
 import { ProdutoPage } from '../pages/produto/produto';
+
+import { PratododiaPage } from '../pages/pratododia/pratododia';
 
 //    Curiosamente "EditCategoriaPage" e "EditProdutoPage" (CamelStyle)
 // não funcionam e geram o erro :
@@ -20,6 +21,8 @@ import { EditprodutoPage } from '../pages/editproduto/editproduto';
 
 import { ListacategoriaPage } from '../pages/listacategoria/listacategoria';
 
+import { ListaprodutoporcategoriaPage } from '../pages/listaprodutoporcategoria/listaprodutoporcategoria';
+
 import { SQLite } from '@ionic-native/sqlite';
 import { BasedadosProvider } from '../providers/basedados/basedados';
 import { CategoriasProvider } from '../providers/categorias/categorias';
@@ -28,12 +31,13 @@ import { ProdutosProvider } from '../providers/produtos/produtos';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     CategoriaPage,
     ProdutoPage,
+    PratododiaPage,
     EditcategoriaPage,
     EditprodutoPage,
-    ListacategoriaPage
+    ListacategoriaPage,
+    ListaprodutoporcategoriaPage
   ],                  
   imports: [
     BrowserModule,
@@ -42,12 +46,13 @@ import { ProdutosProvider } from '../providers/produtos/produtos';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     CategoriaPage,
     ProdutoPage,
+    PratododiaPage,
     EditcategoriaPage,
     EditprodutoPage,
-    ListacategoriaPage
+    ListacategoriaPage,
+    ListaprodutoporcategoriaPage
   ],
   providers: [
     StatusBar,

@@ -3,7 +3,6 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
 import { BasedadosProvider } from '../providers/basedados/basedados';
 
 import { EditcategoriaPage } from '../pages/editcategoria/editcategoria';
@@ -16,7 +15,7 @@ import { ListacategoriaPage } from '../pages/listacategoria/listacategoria';
 })
 export class MyApp {
 
-    // ViewChild serve para usar variáveis do sistema
+    // ViewChild serve para instanciar localmente um objeto de controle do sistema
     @ViewChild(Nav) nav: Nav;
 
     //rootPage:any = HomePage;
@@ -24,9 +23,6 @@ export class MyApp {
     rootPage:any = ListacategoriaPage;
 
     pages: Array<{title: string, component: any}>;
-
-    dadosPadraoCategoria: Array<{name: string, descr: string, imagem: string}>;
-    dadosPadraoProduto: Array<{name: string, descr: string, imagem: string, categoria: number}>;
 
     constructor(
         platform: Platform,

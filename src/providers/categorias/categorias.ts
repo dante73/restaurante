@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ToastController } from 'ionic-angular';
 import { SQLiteObject } from '@ionic-native/sqlite';
 import { BasedadosProvider } from '../../providers/basedados/basedados';
 import 'rxjs/add/operator/map';
@@ -13,10 +12,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class CategoriasProvider {
 
-    constructor(
-        private toast: ToastController,
-        private dbProvider: BasedadosProvider
-    ) { }
+  constructor(
+      private dbProvider: BasedadosProvider
+  ) { }
 
   // CRUD for "Categoria"
 
@@ -51,6 +49,7 @@ export class CategoriasProvider {
                           categoria.id = item.id;
                           categoria.name = item.name;
                           categoria.descr = item.descr;
+                          categoria.imagem = item.imagem;
                           return categoria;
                       }
                       return null;

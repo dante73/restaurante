@@ -7,12 +7,28 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>produto</ion-title>
+      <ion-title>{{ produto.name }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
+
+  <ion-card>
+
+    <img src="assets/imgs/{{ produto.imagem }}"/>
+
+    <ion-card-content>
+      <ion-card-title>
+          {{ produto.name }}
+      </ion-card-title>
+      <p class="item-text-wrap">{{ produto.descr }}</p>
+    </ion-card-content>
+
+    <ion-item text-right>
+        <h3>R$ {{ produto.preco }}</h3>
+    </ion-item>
+
+  </ion-card>
 
 </ion-content>

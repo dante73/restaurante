@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the CategoriaPage page.
+ * Generated class for the EditpratododiaPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-categoria',
-  templateUrl: 'categoria.html',
+  selector: 'page-editpratododia',
+  templateUrl: 'editpratododia.html',
 })
-export class CategoriaPage {
+export class EditpratododiaPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriaPage');
+    console.log('ionViewDidLoad EditpratododiaPage');
   }
 
 }

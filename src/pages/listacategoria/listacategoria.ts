@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ToastController, NavParams } from 'ionic-angular';
 import { CategoriasProvider, Categoria } from '../../providers/categorias/categorias';
+import { ProdutosProvider, Produto } from '../../providers/produtos/produtos';
+import { ListaprodutoporcategoriaPage } from '../../pages/listaprodutoporcategoria/listaprodutoporcategoria';
+import { PratododiaPage } from '../../pages/pratododia/pratododia';
 
 /**
  * Generated class for the ListacategoriaPage page.
@@ -23,27 +26,30 @@ export class ListacategoriaPage {
         public navCtrl: NavController,
         public navParams: NavParams,
         private toast: ToastController,
-        private categoriaProvider: CategoriasProvider) {
+        private categoriaProvider: CategoriasProvider,
+        private produtoProvider: ProdutosProvider) {
     }
 
     ionViewDidLoad() {
+    }
+
+    ionViewWillEnter() {
 
         this.categoriaProvider.getAll()
 
-            .then( (result: any[]) => {
+            .then(
+                (result: any[]) => {
 
                 if ( ! result) {
 
                     this.categorias = [
-                        {name: 'Lanches', descr: 'Lanches feitos com produtos da melhor qualidade.', imagem: 'lanches.png'},
-                        {name: 'Refeições', descr: 'Refeições completas para o seu almoço.', imagem: 'refeicoes.png'}];
+                        {name: 'Atenção', descr: 'Dados não foram retornados.', imagem: 'logo.png'}];
                 }
                 else {
 
                     this.categorias = result;
                 }
             })
-            
             .catch( () => {
 
                 this.toast.create({
@@ -51,5 +57,13 @@ export class ListacategoriaPage {
                     duration: 3000,
                     position: 'bottom'}).present();
             });
+    }
+
+    openProdutoPage(id: number) {
+        this.navCtrl.push(ListaprodutoporcategoriaPage, { id: id });
+    }
+
+    openPratoDoDiaPage() {
+        this.navCtrl.push(PratododiaPage);
     }
 }

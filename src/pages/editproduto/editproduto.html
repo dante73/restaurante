@@ -7,12 +7,69 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>editproduto</ion-title>
+    <ion-title>Cadastro de Produtos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+    <ion-list>
+
+        <ion-item>
+            <ion-label stacked>Nome do Produto</ion-label>
+            <ion-input type="text" name="nome" [(ngModel)]="model.name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Descrição</ion-label>
+            <ion-input type="text" name="name" [(ngModel)]="model.descr"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Preço</ion-label>
+            <ion-input type="text" name="imagem" [(ngModel)]="model.preco"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Imagem</ion-label>
+            <ion-select [(ngModel)]="model.imagem">
+                <ion-option *ngFor="let imagem of imagens" value="{{ imagem }}">{{ imagem }}</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Categoria</ion-label>
+            <ion-select [(ngModel)]="model.categoria">
+                <ion-option *ngFor="let c of categorias" value="{{ c.id }}">{{ c.name }}</ion-option>
+            </ion-select>
+        </ion-item>
+
+    </ion-list>
+
+    <button ion-button block (click)="save()">Salvar</button>
+
+    <br />
+
+    <ion-list>
+
+        <ion-item *ngFor="let p of produtos">
+
+            <ion-thumbnail item-start>
+                <img src="assets/imgs/{{ p.imagem }}">
+            </ion-thumbnail>
+
+            <h2>{{ p.name }}</h2>
+
+            <p class="wrap">{{ p.descr }}</p>
+            <h3>R$ {{ p.preco }}</h3>
+
+            <button ion-button clear item-end (click)="open(p.id)"><ion-icon name="create"></ion-icon></button>
+            <button ion-button clear item-end (click)="deleteIt(p.id)"><ion-icon name="trash"></ion-icon></button>
+
+        </ion-item>
+
+    </ion-list>
 
 </ion-content>
